@@ -3,6 +3,8 @@ source "https://rubygems.org"
 ruby "3.2.0"
 
 gem "bootsnap", require: false
+gem 'city-state', '~> 1.1'
+gem 'enumerize', '~> 2.8', '>= 2.8.1'
 gem 'graphql', '~> 2.3', '>= 2.3.4'
 gem 'pg', '~> 1.5', '>= 1.5.6'
 gem "puma", ">= 5.0"
@@ -13,6 +15,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate', '~> 3.2'
 end
 
 group :test do
