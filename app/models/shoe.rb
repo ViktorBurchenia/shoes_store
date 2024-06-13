@@ -28,4 +28,13 @@ class Shoe < ApplicationRecord
   enumerize :category, in: CATEGORIES
   enumerize :size, in: SIZES
   enumerize :brand_name, in: BRAND_NAMES
+
+  scope :by_query, lambda { |str|
+    where(
+      "brand_name ILIKE :search_input OR " \
+      "category ILIKE :search_input OR " \
+      "color ILIKE :search_input OR " \
+      "model ILIKE :search_input",search_input: "%#{str.squish}%"
+    )
+  }
 end

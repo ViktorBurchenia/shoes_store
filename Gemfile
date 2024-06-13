@@ -6,6 +6,9 @@ gem "bootsnap", require: false
 gem 'city-state', '~> 1.1'
 gem 'enumerize', '~> 2.8', '>= 2.8.1'
 gem 'graphql', '~> 2.3', '>= 2.3.4'
+gem 'graphql-pagination', '~> 2.1', '>= 2.1.1'
+gem 'kaminari-activerecord', '~> 1.2', '>= 1.2.2'
+gem 'pry', '~> 0.14.2'
 gem 'pg', '~> 1.5', '>= 1.5.6'
 gem "puma", ">= 5.0"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
