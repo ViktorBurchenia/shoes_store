@@ -31,11 +31,18 @@
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
 class User < ApplicationRecord
+  extend Enumerize
+
   include GraphqlDevise::Authenticatable
+  include Rollable
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable
 
   has_many :orders
+
+  ACCOUNT_TYPES = %i[customer manager]
+
+  enumerize :account_type, in: ACCOUNT_TYPES, predicates: true
 end

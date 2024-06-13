@@ -1,6 +1,6 @@
 module Shoes
   module Queries
-    class GetShoes < ::Resolvers::BaseResolver
+    class GetShoes < ::Queries::BaseQuery
       description 'Get shoes'
 
       # Base field
@@ -23,7 +23,7 @@ module Shoes
       # Ordering
       argument :sort_by, Enum::ShoesSortFieldsEnumType, required: false, default_value: nil
 
-      type ::Shoes::Types::BaseType.collection_type, null: true
+      type ::Shoes::Types::BaseShoesType.collection_type, null: true
 
       def resolve(pagination:, sort_by:, **params)
         filtered_shoes = ShoesServices::Filter.new(params).call

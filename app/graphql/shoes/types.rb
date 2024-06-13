@@ -1,6 +1,6 @@
 module Shoes
   module Types
-    class BaseType < ::Types::BaseObject
+    class BaseShoesType < ::Types::BaseObject
       description 'Base shoes type'
 
       field :brand_name, String, null: false

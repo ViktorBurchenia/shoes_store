@@ -24,6 +24,7 @@ class Shoe < ApplicationRecord
   CATEGORIES = %w[Sneakers Boots Loafers Sandals]
   SIZES = %w[36 36.5 37 37.5 38 38.5 39 39.5 40 40.5 41 41.5 42 42.5 43 43.5 44]
   BRAND_NAMES = %w[Adidas Nike Reebok Timberland Clarks Dr.Martens Sorel]
+  MINIMAL_AMOUNT_FOR_ORDER = 1
 
   enumerize :category, in: CATEGORIES
   enumerize :size, in: SIZES

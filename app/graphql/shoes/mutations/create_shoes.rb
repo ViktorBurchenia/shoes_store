@@ -3,6 +3,9 @@ module Shoes
     class CreateShoes < ::Mutations::BaseMutation
       description 'Create Shoes'
 
+      ALLOWED_ACCESS = :only_for_managers
+      allow_mutation_access ALLOWED_ACCESS
+
       argument :brand_name, String, required: true
       argument :category, String, required: true
       argument :color, String, required: true
@@ -11,7 +14,7 @@ module Shoes
       argument :price, Integer, required: true
       argument :amount, Integer, required: true
 
-      type ::Shoes::Types::BaseType
+      type ::Shoes::Types::BaseShoesType
 
       def resolve(**params)
         shoes = Shoe.new(**params)

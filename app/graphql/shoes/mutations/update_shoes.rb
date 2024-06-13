@@ -3,6 +3,9 @@ module Shoes
     class UpdateShoes < ::Mutations::BaseMutation
       description 'Create Shoes'
 
+      ALLOWED_ACCESS = :only_for_managers
+      allow_mutation_access ALLOWED_ACCESS
+
       argument :id, ID, required: true
       argument :brand_name, String, required: false
       argument :category, String, required: false
@@ -12,7 +15,7 @@ module Shoes
       argument :price, Integer, required: false
       argument :amount, Integer, required: false
 
-      type ::Shoes::Types::BaseType
+      type ::Shoes::Types::BaseShoesType
 
       def resolve(id:, **params)
         shoes = Shoe.find_by(id:)
