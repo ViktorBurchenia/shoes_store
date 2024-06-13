@@ -21,7 +21,7 @@
 class Order < ApplicationRecord
   extend Enumerize
 
-  # belongs_to :user
+  belongs_to :user
   belongs_to :shoe
 
   validates :address, :city, :state, :zip_code, presence: true
