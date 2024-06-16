@@ -9,4 +9,3 @@ en:
       only_for_managers: Only managers can run this mutation
     orders:
       shoes_is_out_of_stock: Currently these shoes are out of stock
-      shoes_is_not_present: These shoes are not found

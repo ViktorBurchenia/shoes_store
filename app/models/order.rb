@@ -30,7 +30,7 @@ class Order < ApplicationRecord
   STATUSES = %w[in_progress accepted cancelled delivered refund finished]
 
   enumerize :state, in: STATES
-  enumerize :status, in: STATUSES, predicates: true
+  enumerize :status, in: STATUSES
 
   state_machine :status, initial: :in_progress do
     event :accept do

@@ -1,5 +1,6 @@
 Shoe.destroy_all
 AMOUNT_IMAGES = 3
+AMOUNT_SHOES = 25
 
 def create_shoe
   Shoe.create(
@@ -14,6 +15,6 @@ def create_shoe
   )
 end
 
-25.times do
+AMOUNT_SHOES.times do
   create_shoe
 end

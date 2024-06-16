@@ -29,7 +29,7 @@ module Orders
       def validate_order(params)
         shoe = Shoe.find_by(id: params[:shoe_id])
 
-        raise GraphQL::ExecutionError, I18n.t('errors.orders.shoes_is_not_present' ) unless shoe.present?
+        raise GraphQL::ExecutionError, I18n.t('errors.entity_is_blank', entity: 'Shoes') unless shoe.present?
 
         return if shoe.amount.to_i > Shoe::MINIMAL_AMOUNT_FOR_ORDER
 

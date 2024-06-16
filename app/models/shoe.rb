@@ -17,7 +17,7 @@
 class Shoe < ApplicationRecord
   extend Enumerize
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   validates :brand_name, :category, :color, :price, :size, :amount, presence: true
   validates :brand_name, uniqueness: { scope: [:category, :color, :model, :price, :size] }
