@@ -1,10 +1,10 @@
 AMOUNT_IMAGES = 3
 AMOUNT_SHOES = 25
-
-SHOES_CATEGORY =
-  %w[
-    running basketball tennis nike adidas puma balenciaga gucci
-  ]
+NUMBER_OF_ORDERS = rand(4..5)
+SHOES_CATEGORY = %w[running basketball tennis nike adidas puma balenciaga gucci].freeze
+EMAIL_MANAGER = 'manager_123@gmail.com'.freeze
+EMAIL_CUSTOMER = 'customer_123@gmail.com'.freeze
+USER_PASSWORD = 'password'.freeze
 
 def create_shoe
   Shoe.create(
@@ -20,6 +20,40 @@ def create_shoe
   )
 end
 
-AMOUNT_SHOES.times do
-  create_shoe
+def create_user(account_type:, email:)
+  user = User.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: email,
+    password: USER_PASSWORD,
+    account_type: account_type,
+    confirmed_at: Time.now
+  )
+  user.skip_confirmation!
+  user.save!
+  user
 end
+
+def create_order(user)
+  shoe = Shoe.all.sample
+  Order.create(
+    address: Faker::Address.street_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state_abbr,
+    zip_code: Faker::Address.zip_code,
+    user: user,
+    shoe: shoe
+  )
+end
+
+# Create Users
+create_user(account_type: User::MANAGER, email: EMAIL_MANAGER)
+customer = create_user(account_type: User::CUSTOMER, email: EMAIL_CUSTOMER)
+
+# Create Shoes
+AMOUNT_SHOES.times { create_shoe }
+
+# Create Orders
+NUMBER_OF_ORDERS.times { create_order(customer) }
+
+puts "Seeding completed successfully!"

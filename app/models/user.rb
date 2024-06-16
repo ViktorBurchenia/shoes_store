@@ -42,7 +42,7 @@ class User < ApplicationRecord
 
   has_many :orders
 
-  ACCOUNT_TYPES = %i[customer manager]
+  ACCOUNT_TYPES = [CUSTOMER = 'customer'.freeze, MANAGER = 'manager'.freeze]
 
   enumerize :account_type, in: ACCOUNT_TYPES, predicates: true
 end
