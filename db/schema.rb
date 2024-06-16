@@ -38,7 +38,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_16_150620) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "images", default: [], array: true
+    t.string "image"
+    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|

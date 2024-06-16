@@ -2,17 +2,18 @@
 #
 # Table name: shoes
 #
-#  id         :bigint           not null, primary key
-#  amount     :integer
-#  brand_name :string
-#  category   :string
-#  color      :string
-#  images     :string           default([]), is an Array
-#  model      :string
-#  price      :integer
-#  size       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :bigint           not null, primary key
+#  amount      :integer
+#  brand_name  :string
+#  category    :string
+#  color       :string
+#  description :string
+#  image       :string
+#  model       :string
+#  price       :integer
+#  size        :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 class Shoe < ApplicationRecord
   extend Enumerize

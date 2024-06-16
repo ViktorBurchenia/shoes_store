@@ -12,7 +12,7 @@ module Rollable
 
   private
 
-  def singular_access?(access_type) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
+  def singular_access?(access_type)
     return false if ALLOWED_ACCESS_TYPES.exclude?(access_type)
 
     case access_type
