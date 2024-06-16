@@ -6,6 +6,7 @@ module Shoes
       field :brand_name, String, null: false
       field :category, String, null: false
       field :color, String, null: false
+      field :images, [String], null: false
       field :model, String, null: false
       field :size, String, null: false
       field :price, Integer, null: false

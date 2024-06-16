@@ -1,9 +1,19 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+Shoe.destroy_all
+AMOUNT_IMAGES = 3
+
+def create_shoe
+  Shoe.create(
+    amount: rand(1..50),
+    brand_name: Shoe::BRAND_NAMES.sample,
+    category: Shoe::CATEGORIES.sample,
+    color: Faker::Color.color_name,
+    model: Faker::Lorem.word,
+    price: rand(50..300),
+    size: Shoe::SIZES.sample,
+    images: AMOUNT_IMAGES.times.map { Faker::LoremFlickr.image(size: "800x600", search_terms: ['sneakers', 'running']) }
+  )
+end
+
+25.times do
+  create_shoe
+end

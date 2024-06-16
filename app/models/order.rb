@@ -27,8 +27,30 @@ class Order < ApplicationRecord
   validates :address, :city, :state, :zip_code, presence: true
 
   STATES = CS.states(:us).keys.map(&:to_s)
+  STATUSES = %w[in_progress accepted cancelled delivered refund finished]
 
   enumerize :state, in: STATES
+  enumerize :status, in: STATUSES, predicates: true
 
-  # add state machine for status
+  state_machine :status, initial: :in_progress do
+    event :accept do
+      transition :in_progress => :accepted
+    end
+
+    event :cancel do
+      transition :in_progress => :cancelled
+    end
+
+    event :deliver do
+      transition :accepted => :delivered
+    end
+
+    event :initiate_refund do
+      transition [:accepted, :delivered] => :refund
+    end
+
+    event :process_refund do
+      transition [:refund, :delivered] => :finished
+    end
+  end
 end

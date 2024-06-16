@@ -7,6 +7,7 @@
 #  brand_name :string
 #  category   :string
 #  color      :string
+#  images     :string           default([]), is an Array
 #  model      :string
 #  price      :integer
 #  size       :string

@@ -7,8 +7,11 @@ gem 'city-state', '~> 1.1'
 gem 'enumerize', '~> 2.8', '>= 2.8.1'
 gem 'graphql', '~> 2.3', '>= 2.3.4'
 gem 'graphql_devise', '~> 1.5'
-gem 'rack-cors', '~> 2.0', '>= 2.0.1'
 gem 'graphql-pagination', '~> 2.1', '>= 2.1.1'
+gem 'rack-cors', '~> 2.0', '>= 2.0.1'
+gem 'faker', '~> 3.4', '>= 3.4.1'
+gem 'state_machines', '~> 0.6.0'
+gem 'state_machines-activerecord', '~> 0.9.0'
 gem 'kaminari-activerecord', '~> 1.2', '>= 1.2.2'
 gem 'pry', '~> 0.14.2'
 gem 'pg', '~> 1.5', '>= 1.5.6'
@@ -20,9 +23,9 @@ group :development, :test do
 end
 
 group :development do
+  gem "graphiql-rails"
   gem 'annotate', '~> 3.2'
 end
 
 group :test do
 end
-gem "graphiql-rails", group: :development

@@ -12,5 +12,6 @@ module Types
 
     # Orders
     query :create_order, ::Orders::Mutations::CreateOrder
+    query :update_order, ::Orders::Mutations::UpdateOrder
   end
 end
