@@ -1,24 +1,33 @@
-# README
+# Quick Start API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+1. **Install Dependencies**
 
-* Ruby version
+   ```bash
+   bundle install
 
-* System dependencies
+2. **Create Database**:
+You need to have Postgres
 
-* Configuration
+    ```bash
+    rails db:create
+    ```
 
-* Database creation
+3. **Run Migrations**
 
-* Database initialization
+    ```bash
+    rails db:migrate
+    ```
 
-* How to run the test suite
+4. **Run Seeds**
 
-* Services (job queues, cache servers, search engines, etc.)
+    ```bash
+    rails db:seed
+    ```
 
-* Deployment instructions
+5. **Run Server**
 
-* ...
+    ```bash
+    rails s
+    ```
