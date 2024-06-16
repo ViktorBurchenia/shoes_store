@@ -3,9 +3,6 @@
 class GraphqlController < ApplicationController
   include GraphqlDevise::SetUserByToken
 
-  before_action :authenticate_user!
-
-
   def execute
     variables = prepare_variables(params[:variables])
     query = params[:query]
